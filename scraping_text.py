@@ -41,7 +41,7 @@ def get_all_comments(arr_posts_id):
                                  'v': version})
         for i in range(100):
             try:
-                write_txt('comments.txt', r.json()['response']['items'][i]['text'])
+                write_txt('comments/all_comments.txt', r.json()['response']['items'][i]['text'])
 
             except IndexError:
                 pass
