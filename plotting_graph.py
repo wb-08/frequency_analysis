@@ -13,29 +13,26 @@ arr_wikipedia_frequency = [8.01, 1.59, 4.54, 1.7, 2.98, 8.45, 0.04, 0.94, 1.65, 
                            2.62, 0.26, 0.97, 0.48, 1.44, 0.73, 0.36, 0.04, 1.9, 1.74,
                            0.32, 0.64, 2.01]
 
-f = open('comments.txt')
+f = open('comments/clean_comments.txt')
 counter = Counter(f.read().lower())
 
 
 def count_letters():
-    count = 0
+    number = 0
     for i in range(len(arr_letters)):
-        count += counter[arr_letters[i]]
-    return count
+        number += counter[arr_letters[i]]
+    return number
 
 
-def frequency(count):
-    arr_my_frequency = []
+def frequency(number):
+    arr_frequency = []
     for i in range(len(arr_letters)):
-        frequency = counter[arr_letters[i]] / count * 100
-        arr_my_frequency.append(frequency)
-
-    return arr_my_frequency
-
+        ratio = counter[arr_letters[i]] / number * 100
+        arr_frequency.append(ratio)
+    return arr_frequency
 
 
 def plotting_diagram(arr_my_frequency):
-
     fig, ax = plt.subplots()
 
     xs = range(len(arr_letters))
@@ -53,11 +50,11 @@ def plotting_diagram(arr_my_frequency):
     fig.set_figheight(12)
     fig.set_facecolor('floralwhite')
     plt.legend()
-    fig.savefig('frequency_0.png')
+    fig.savefig('images/frequency_graph.png')
 
 
 if __name__ == '__main__':
     count = count_letters()
-    arr_my_frequency = frequency(count)
-    plotting_diagram(arr_my_frequency)
+    lst_frequency = frequency(count)
+    plotting_diagram(lst_frequency)
 
