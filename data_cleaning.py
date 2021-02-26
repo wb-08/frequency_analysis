@@ -32,7 +32,7 @@ def has_cyrillic(text):
 
 def clean_text():
     arr_clean_comments = []
-    file = open("comments.txt", "r")
+    file = open("comments/all_comments.txt", "r")
     for line in file:
         comment = delete_emojis(line.strip())
         comment = delete_references(comment)
@@ -44,7 +44,7 @@ def clean_text():
 
 
 def add_clean_text_in_file(clean_comments):
-    file = open("clean_comments.txt", 'a')
+    file = open("comments/clean_comments.txt", 'a')
     file.writelines("%s\n" % comment for comment in clean_comments)
 
 
